@@ -1,0 +1,7 @@
+[
+  "tests/test_app.py::test_add_expense",
+  "tests/test_app.py::test_get_expenses",
+  "tests/test_app.py::test_home",
+  "tests/test_app.py::test_invalid_amount",
+  "tests/test_app.py::test_total"
+]
