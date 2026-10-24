@@ -1,5 +1,5 @@
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import sqlite3
 
 app = Flask(__name__)
@@ -30,7 +30,9 @@ def home():
     return jsonify({
         "message": "Personal Expense Tracker API is running"
     })
-
+@app.route("/dashboard")
+def dashboard():
+    return render_template("index.html")
 
 @app.route("/expenses", methods=["POST"])
 def add_expense():
@@ -39,6 +41,7 @@ def add_expense():
     title = data.get("title")
     amount = data.get("amount")
     category = data.get("category")
+
 
     if not title or not category or amount is None:
         return jsonify({"error": "All fields are required"}), 400
